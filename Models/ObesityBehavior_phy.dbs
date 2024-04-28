@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="Obesity_Behavioral_dw_lgl" id="GoogleBigQuery-11a5" database="GoogleBigQuery" >
+	<schema name="INSTANCE" catalogname="Obesity_Behavioral_dw_lgl" >
+		<table name="dim_location" >
+			<column name="location_id" type="int64" jt="4" mandatory="y" />
+			<column name="location_abbr" type="string" length="2" jt="12" />
+			<column name="location_desc" type="string" length="20" jt="12" />
+			<column name="latitude" type="bignumeric" jt="8" />
+			<column name="longitude" type="bignumeric" jt="8" />
+			<index name="pk_dim_location" unique="PRIMARY_KEY" >
+				<column name="location_id" />
+			</index>
+		</table>
+		<table name="dim_question" >
+			<column name="question_id" type="string" length="4" jt="12" mandatory="y" />
+			<column name="question" type="string" length="250" jt="12" />
+			<index name="pk_dim_question" unique="PRIMARY_KEY" >
+				<column name="question_id" />
+			</index>
+		</table>
+		<table name="dim_stratificication" >
+			<column name="stratification_id" type="string" length="7" jt="12" mandatory="y" />
+			<column name="stratification_category1" type="string" length="10" jt="12" />
+			<column name="stratification_category2" type="string" length="20" jt="12" />
+			<column name="stratification" type="string" length="50" jt="12" />
+			<index name="pk_dim_stratificication" unique="PRIMARY_KEY" >
+				<column name="stratification_id" />
+			</index>
+		</table>
+		<table name="dim_topic" >
+			<column name="topic_id" type="int64" jt="4" mandatory="y" />
+			<column name="topic" type="string" length="25" jt="12" />
+			<index name="pk_dim_class_topic_question" unique="PRIMARY_KEY" >
+				<column name="topic_id" />
+			</index>
+		</table>
+		<table name="dim_year" >
+			<column name="year_id" type="int64" jt="4" mandatory="y" />
+			<column name="year_start" type="date" jt="91" />
+			<column name="year_end" type="date" jt="91" />
+			<index name="pk_dim_year" unique="PRIMARY_KEY" >
+				<column name="year_id" />
+			</index>
+		</table>
+		<table name="facts_obesity_behavioral" >
+			<column name="fact_id" type="int64" jt="4" mandatory="y" />
+			<column name="year_id" type="int64" jt="4" mandatory="y" />
+			<column name="location_id" type="int64" jt="4" mandatory="y" />
+			<column name="stratification_id" type="int64" jt="4" mandatory="y" />
+			<column name="topic_id" type="string" length="3" jt="12" mandatory="y" />
+			<column name="question_id" type="string" length="4" jt="12" mandatory="y" />
+			<column name="data_value" type="numeric" length="2" decimal="2" jt="2" />
+			<index name="pk_facts_obesity_behavioral" unique="PRIMARY_KEY" >
+				<column name="fact_id" />
+				<column name="location_id" />
+				<column name="topic_id" />
+				<column name="stratification_id" />
+				<column name="year_id" />
+				<column name="question_id" />
+			</index>
+			<fk name="fk_facts_obesity_behavioral_dim_location" virtual="y" to_schema="Obesity_Behavioral_dw_lgl.INSTANCE" to_table="dim_location" >
+				<fk_column name="location_id" pk="location_id" />
+			</fk>
+			<fk name="fk_facts_obesity_behavioral_dim_topic_0" virtual="y" to_schema="Obesity_Behavioral_dw_lgl.INSTANCE" to_table="dim_topic" >
+				<fk_column name="topic_id" pk="topic_id" />
+			</fk>
+			<fk name="fk_facts_obesity_behavioral_dim_stratificication" virtual="y" to_schema="Obesity_Behavioral_dw_lgl.INSTANCE" to_table="dim_stratificication" >
+				<fk_column name="stratification_id" pk="stratification_id" />
+			</fk>
+			<fk name="fk_facts_obesity_behavioral_dim_year" virtual="y" to_schema="Obesity_Behavioral_dw_lgl.INSTANCE" to_table="dim_year" >
+				<fk_column name="year_id" pk="year_id" />
+			</fk>
+			<fk name="fk_facts_obesity_behavioral_dim_question" virtual="y" to_schema="Obesity_Behavioral_dw_lgl.INSTANCE" to_table="dim_question" >
+				<fk_column name="question_id" pk="question_id" />
+			</fk>
+		</table>
+	</schema>
+	<layout name="Default Layout" id="Layout-3d0" confirmed="y" show_relation="columns" >
+		<entity schema="Obesity_Behavioral_dw_lgl.INSTANCE" name="dim_location" color="C1D8EE" x="680" y="221" />
+		<entity schema="Obesity_Behavioral_dw_lgl.INSTANCE" name="dim_question" color="C1D8EE" x="391" y="527" />
+		<entity schema="Obesity_Behavioral_dw_lgl.INSTANCE" name="dim_stratificication" color="C1D8EE" x="646" y="408" />
+		<entity schema="Obesity_Behavioral_dw_lgl.INSTANCE" name="dim_topic" color="C1D8EE" x="85" y="493" />
+		<entity schema="Obesity_Behavioral_dw_lgl.INSTANCE" name="dim_year" color="C1D8EE" x="51" y="272" />
+		<entity schema="Obesity_Behavioral_dw_lgl.INSTANCE" name="facts_obesity_behavioral" color="C1D8EE" x="289" y="272" />
+		<callout x="153" y="51" pointer="Round" >
+			<comment><![CDATA[This is a layout - a diagram with tools.
+- Create new entities by right-clicking the layout. 
+- Double-click entity headers to edit.
+- For a better understanding of the schema, create multiple layouts.
+- Deploy the model into the database by converting it first to the physical design.]]></comment>
+		</callout>
+		<script name="Obesity_behavioral_phy_dw.sql" id="Editor-1cc5" language="SQL" file="file:/Users/trang/Documents/Obesity_behavioral_phy_dw.sql" />
+	</layout>
+</project>
