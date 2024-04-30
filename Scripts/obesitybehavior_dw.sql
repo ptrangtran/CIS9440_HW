@@ -2,8 +2,10 @@ CREATE SCHEMA INSTANCE;
 
 CREATE TABLE Obesity_Behavioral_dw_lgl.INSTANCE.dim_location ( 
 	location_id int64 NOT NULL  ,
-	location_abbr string  ,
-	location_desc string  ,
+	country string  ,
+	state string  ,
+	state_abbr string  ,
+	city string  ,
 	latitude bignumeric  ,
 	longitude bignumeric  
  );
