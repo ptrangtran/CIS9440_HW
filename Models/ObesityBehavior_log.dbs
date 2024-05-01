@@ -3,8 +3,10 @@
 	<schema name="INSTANCE" catalogname="Obesity_Behavioral_dw_lgl" >
 		<table name="dim_location" prior="dim_" >
 			<column name="location_id" type="INT" jt="4" mandatory="y" />
-			<column name="location_abbr" type="VARCHAR" length="2" jt="12" />
-			<column name="location_desc" type="VARCHAR" length="20" jt="12" />
+			<column name="country" type="CHAR" length="25" jt="1" />
+			<column name="state_abbr" prior="location_abbr" type="VARCHAR" length="2" jt="12" />
+			<column name="state" prior="location_desc" type="VARCHAR" length="20" jt="12" />
+			<column name="zipcode" type="INT" jt="4" />
 			<column name="latitude" prior="lattitude" type="DOUBLE" jt="8" />
 			<column name="longitude" prior="geolocation" type="DOUBLE" jt="8" />
 			<index name="pk_dim_location" unique="PRIMARY_KEY" >
