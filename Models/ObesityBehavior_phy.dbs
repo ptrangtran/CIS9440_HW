@@ -7,6 +7,7 @@
 			<column name="state" type="string" jt="12" />
 			<column name="state_abbr" prior="location_abbr" type="string" length="2" jt="12" />
 			<column name="city" type="string" jt="12" />
+			<column name="zipcode" type="int64" jt="4" />
 			<column name="latitude" type="bignumeric" jt="8" />
 			<column name="longitude" type="bignumeric" jt="8" />
 			<index name="pk_dim_location" unique="PRIMARY_KEY" >
@@ -80,7 +81,7 @@
 	<layout name="Default Layout" id="Layout-3d0" confirmed="y" show_relation="columns" >
 		<entity schema="Obesity_Behavioral_dw_lgl.INSTANCE" name="dim_location" color="C1D8EE" x="680" y="221" />
 		<entity schema="Obesity_Behavioral_dw_lgl.INSTANCE" name="dim_question" color="C1D8EE" x="391" y="527" />
-		<entity schema="Obesity_Behavioral_dw_lgl.INSTANCE" name="dim_stratificication" color="C1D8EE" x="646" y="408" />
+		<entity schema="Obesity_Behavioral_dw_lgl.INSTANCE" name="dim_stratificication" color="C1D8EE" x="646" y="442" />
 		<entity schema="Obesity_Behavioral_dw_lgl.INSTANCE" name="dim_topic" color="C1D8EE" x="85" y="493" />
 		<entity schema="Obesity_Behavioral_dw_lgl.INSTANCE" name="dim_year" color="C1D8EE" x="51" y="272" />
 		<entity schema="Obesity_Behavioral_dw_lgl.INSTANCE" name="facts_obesity_behavioral" color="C1D8EE" x="289" y="272" />
@@ -107,64 +108,6 @@ CREATE TABLE Obesity_Behavioral_dw_lgl.INSTANCE.dim_location (
 ALTER TABLE Obesity_Behavioral_dw_lgl.INSTANCE.dim_location ADD PRIMARY KEY ( location_id )  NOT ENFORCED;
 ]]></string>
 		</script>
-		<script name="SQL_Editor_001" id="Editor-6b0" language="SQL" >
-			<string><![CDATA[CREATE SCHEMA INSTANCE;
-
-CREATE TABLE Obesity_Behavioral_dw_lgl.INSTANCE.dim_location ( 
-	location_id int64 NOT NULL  ,
-	country string  ,
-	state string  ,
-	state_abbr string  ,
-	city string  ,
-	latitude bignumeric  ,
-	longitude bignumeric  
- );
-
-ALTER TABLE Obesity_Behavioral_dw_lgl.INSTANCE.dim_location ADD PRIMARY KEY ( location_id )  NOT ENFORCED;
-
-CREATE TABLE Obesity_Behavioral_dw_lgl.INSTANCE.dim_question ( 
-	question_id string NOT NULL  ,
-	question string  
- );
-
-ALTER TABLE Obesity_Behavioral_dw_lgl.INSTANCE.dim_question ADD PRIMARY KEY ( question_id )  NOT ENFORCED;
-
-CREATE TABLE Obesity_Behavioral_dw_lgl.INSTANCE.dim_stratificication ( 
-	stratification_id string NOT NULL  ,
-	stratification_category1 string  ,
-	stratification_category2 string  ,
-	stratification string  
- );
-
-ALTER TABLE Obesity_Behavioral_dw_lgl.INSTANCE.dim_stratificication ADD PRIMARY KEY ( stratification_id )  NOT ENFORCED;
-
-CREATE TABLE Obesity_Behavioral_dw_lgl.INSTANCE.dim_topic ( 
-	topic_id int64 NOT NULL  ,
-	topic string  
- );
-
-ALTER TABLE Obesity_Behavioral_dw_lgl.INSTANCE.dim_topic ADD PRIMARY KEY ( topic_id )  NOT ENFORCED;
-
-CREATE TABLE Obesity_Behavioral_dw_lgl.INSTANCE.dim_year ( 
-	year_id int64 NOT NULL  ,
-	year_start date  ,
-	year_end date  
- );
-
-ALTER TABLE Obesity_Behavioral_dw_lgl.INSTANCE.dim_year ADD PRIMARY KEY ( year_id )  NOT ENFORCED;
-
-CREATE TABLE Obesity_Behavioral_dw_lgl.INSTANCE.facts_obesity_behavioral ( 
-	fact_id int64 NOT NULL  ,
-	year_id int64 NOT NULL  ,
-	location_id int64 NOT NULL  ,
-	stratification_id int64 NOT NULL  ,
-	topic_id string NOT NULL  ,
-	question_id string NOT NULL  ,
-	data_value numeric(2,2)  
- );
-
-ALTER TABLE Obesity_Behavioral_dw_lgl.INSTANCE.facts_obesity_behavioral ADD PRIMARY KEY ( fact_id, location_id, topic_id, stratification_id, year_id, question_id )  NOT ENFORCED;
-]]></string>
-		</script>
+		<script name="obesitybehavior.sql" id="Editor-6b0" language="SQL" file="file:/Users/trang/Baruch%20Spring%202024/CIS9440%20Data%20Warehousing%20and%20Analytics/obesitybehavior.sql" />
 	</layout>
 </project>
