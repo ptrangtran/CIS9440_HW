@@ -21,7 +21,7 @@
 			</index>
 		</table>
 		<table name="dim_stratificication" prior="dim_stratificiatioin" >
-			<column name="stratification_id" type="VARCHAR" length="7" jt="12" mandatory="y" />
+			<column name="stratification_id" type="VARCHAR" length="12" jt="12" mandatory="y" />
 			<column name="stratification_category1" prior="stratification_category_id" type="VARCHAR" length="10" jt="12" />
 			<column name="stratification_category2" prior="stratification_category" type="VARCHAR" length="20" jt="12" />
 			<column name="stratification" type="VARCHAR" length="50" jt="12" />
@@ -48,7 +48,7 @@
 			<column name="fact_id" prior="factid" type="BIGINT" jt="-5" mandatory="y" />
 			<column name="year_id" type="INT" jt="4" mandatory="y" />
 			<column name="location_id" type="INT" jt="4" mandatory="y" />
-			<column name="stratification_id" type="INT" jt="4" mandatory="y" />
+			<column name="stratification_id" type="VARCHAR" length="12" jt="12" mandatory="y" />
 			<column name="topic_id" type="VARCHAR" length="3" jt="12" mandatory="y" />
 			<column name="question_id" type="VARCHAR" length="4" jt="12" mandatory="y" />
 			<column name="data_value" type="DECIMAL" length="2" decimal="2" jt="3" />
