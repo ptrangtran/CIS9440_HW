@@ -2,78 +2,81 @@
 <project name="Obesity_Behavioral_dw_lgl" id="LogicalDesign-1866" database="LogicalDesign" >
 	<schema name="INSTANCE" catalogname="Obesity_Behavioral_dw_lgl" >
 		<table name="dim_location" prior="dim_" >
-			<column name="location_id" type="INT" jt="4" mandatory="y" />
-			<column name="country" type="CHAR" length="25" jt="1" />
-			<column name="state_abbr" prior="location_abbr" type="VARCHAR" length="2" jt="12" />
-			<column name="state" prior="location_desc" type="VARCHAR" length="20" jt="12" />
-			<column name="zipcode" type="INT" jt="4" />
-			<column name="latitude" prior="lattitude" type="DOUBLE" jt="8" />
-			<column name="longitude" prior="geolocation" type="DOUBLE" jt="8" />
+			<column name="LocationID" prior="location_id" type="INT" jt="4" mandatory="y" />
+			<column name="Country" prior="country" type="CHAR" length="25" jt="1" />
+			<column name="State" prior="state" type="VARCHAR" length="20" jt="12" />
+			<column name="StateAbbr" prior="state_abbr" type="VARCHAR" length="2" jt="12" />
+			<column name="ZipCode" prior="zipcode" type="INT" jt="4" />
+			<column name="Latitude" prior="latitude" type="DOUBLE" jt="8" />
+			<column name="Longitude" prior="longitude" type="DOUBLE" jt="8" />
 			<index name="pk_dim_location" unique="PRIMARY_KEY" >
-				<column name="location_id" />
+				<column name="LocationID" />
 			</index>
 		</table>
 		<table name="dim_question" prior="Entity" >
-			<column name="question_id" type="VARCHAR" length="4" jt="12" mandatory="y" />
-			<column name="question" type="VARCHAR" length="250" jt="12" />
+			<column name="QuestionID" prior="question_id" type="VARCHAR" length="4" jt="12" mandatory="y" />
+			<column name="Question" prior="question" type="VARCHAR" length="250" jt="12" />
 			<index name="pk_dim_question" unique="PRIMARY_KEY" >
-				<column name="question_id" />
+				<column name="QuestionID" />
 			</index>
 		</table>
 		<table name="dim_stratificication" prior="dim_stratificiatioin" >
-			<column name="stratification_id" type="VARCHAR" length="12" jt="12" mandatory="y" />
-			<column name="stratification_category1" prior="stratification_category_id" type="VARCHAR" length="10" jt="12" />
-			<column name="stratification_category2" prior="stratification_category" type="VARCHAR" length="20" jt="12" />
-			<column name="stratification" type="VARCHAR" length="50" jt="12" />
+			<column name="StratificationID" prior="stratification_id" type="VARCHAR" length="12" jt="12" mandatory="y" />
+			<column name="StratificationCategory1" prior="stratification_category1" type="VARCHAR" length="10" jt="12" />
+			<column name="StratificationCategory2" prior="stratification_category2" type="VARCHAR" length="20" jt="12" />
+			<column name="Stratification" prior="stratification" type="VARCHAR" length="50" jt="12" />
 			<index name="pk_dim_stratificication" unique="PRIMARY_KEY" >
-				<column name="stratification_id" />
+				<column name="StratificationID" />
 			</index>
 		</table>
 		<table name="dim_topic" prior="dim_class_topic_question" >
-			<column name="topic_id" prior="class_id" type="INT" jt="4" mandatory="y" />
-			<column name="topic" type="VARCHAR" length="25" jt="12" />
+			<column name="TopicID" prior="topic_id" type="INT" jt="4" mandatory="y" />
+			<column name="Topic" prior="topic" type="VARCHAR" length="25" jt="12" />
 			<index name="pk_dim_class_topic_question" unique="PRIMARY_KEY" >
-				<column name="topic_id" />
+				<column name="TopicID" />
 			</index>
 		</table>
 		<table name="dim_year" prior="Entity" >
-			<column name="year_id" type="INT" jt="4" mandatory="y" />
-			<column name="year_start" type="DATE" jt="91" />
-			<column name="year_end" type="DATE" jt="91" />
+			<column name="YearID" prior="year_id" type="INT" jt="4" mandatory="y" />
+			<column name="YearStart" prior="year_start" type="DATE" jt="91" />
+			<column name="YearEnd" prior="year_end" type="DATE" jt="91" />
 			<index name="pk_dim_year" unique="PRIMARY_KEY" >
-				<column name="year_id" />
+				<column name="YearID" />
 			</index>
 		</table>
-		<table name="facts_obesity_behavioral" prior="facts_obesity_behav" >
-			<column name="fact_id" prior="factid" type="BIGINT" jt="-5" mandatory="y" />
-			<column name="year_id" type="INT" jt="4" mandatory="y" />
-			<column name="location_id" type="INT" jt="4" mandatory="y" />
-			<column name="stratification_id" type="VARCHAR" length="12" jt="12" mandatory="y" />
-			<column name="topic_id" type="VARCHAR" length="3" jt="12" mandatory="y" />
-			<column name="question_id" type="VARCHAR" length="4" jt="12" mandatory="y" />
-			<column name="data_value" type="DECIMAL" length="2" decimal="2" jt="3" />
+		<table name="facts_obesitybehavior" prior="facts_obesity_behavioral" >
+			<column name="FactID" prior="Fact_ID" type="BIGINT" jt="-5" mandatory="y" />
+			<column name="YearID" prior="Year_ID" type="INT" jt="4" mandatory="y" />
+			<column name="LocationID" prior="Location_ID" type="INT" jt="4" mandatory="y" />
+			<column name="StratificationID" prior="Stratification_ID" type="VARCHAR" length="12" jt="12" mandatory="y" />
+			<column name="TopicID" prior="Topic_ID" type="VARCHAR" length="3" jt="12" mandatory="y" />
+			<column name="QuestionID" prior="Question_ID" type="VARCHAR" length="4" jt="12" mandatory="y" />
+			<column name="DataValue" prior="Data_Value" type="DECIMAL" length="2" decimal="2" jt="3" />
+			<column name="LowConfidence" prior="Low_Confidence" type="DECIMAL" length="2" decimal="2" jt="3" />
+			<column name="HighConfidence" prior="High_Confidence" type="DECIMAL" length="2" decimal="2" jt="3" />
+			<column name="SampleSize" prior="Sample_Size" type="DECIMAL" length="2" decimal="2" jt="3" />
 			<index name="pk_facts_obesity_behavioral" unique="PRIMARY_KEY" >
-				<column name="fact_id" />
-				<column name="location_id" />
-				<column name="topic_id" />
-				<column name="stratification_id" />
-				<column name="year_id" />
-				<column name="question_id" />
+				<column name="FactID" />
+				<column name="LocationID" />
+				<column name="TopicID" />
+				<column name="StratificationID" />
+				<column name="YearID" />
+				<column name="QuestionID" />
 			</index>
 			<fk name="fk_facts_obesity_behavioral_dim_location" virtual="y" to_schema="Obesity_Behavioral_dw_lgl.INSTANCE" to_table="dim_location" type="Identifying" mandatory="y" cardinality="ZeroMore" range_from="0" range_to="0" >
-				<fk_column name="location_id" pk="location_id" />
+				<fk_column name="LocationID" pk="LocationID" />
 			</fk>
 			<fk name="fk_facts_obesity_behavioral_dim_topic_0" virtual="y" to_schema="Obesity_Behavioral_dw_lgl.INSTANCE" to_table="dim_topic" type="Identifying" mandatory="y" cardinality="ZeroMore" range_from="0" range_to="0" >
-				<fk_column name="topic_id" pk="topic_id" />
+				<fk_column name="TopicID" pk="TopicID" />
 			</fk>
 			<fk name="fk_facts_obesity_behavioral_dim_stratificication" virtual="y" to_schema="Obesity_Behavioral_dw_lgl.INSTANCE" to_table="dim_stratificication" type="Identifying" mandatory="y" cardinality="ZeroMore" range_from="0" range_to="0" >
-				<fk_column name="stratification_id" pk="stratification_id" />
+				<fk_column name="StratificationID" pk="StratificationID" />
 			</fk>
 			<fk name="fk_facts_obesity_behavioral_dim_year" virtual="y" to_schema="Obesity_Behavioral_dw_lgl.INSTANCE" to_table="dim_year" type="Identifying" mandatory="y" cardinality="ZeroMore" range_from="0" range_to="0" >
-				<fk_column name="year_id" pk="year_id" />
+				<fk_column name="YearID" pk="YearID" />
 			</fk>
 			<fk name="fk_facts_obesity_behavioral_dim_question" virtual="y" to_schema="Obesity_Behavioral_dw_lgl.INSTANCE" to_table="dim_question" type="Identifying" mandatory="y" cardinality="ZeroMore" range_from="0" range_to="0" >
-				<fk_column name="question_id" pk="question_id" />
+				<fk_column name="QuestionID" pk="QuestionID" />
 			</fk>
 		</table>
 	</schema>
@@ -83,7 +86,7 @@
 		<entity schema="Obesity_Behavioral_dw_lgl.INSTANCE" name="dim_stratificication" color="C1D8EE" x="646" y="408" />
 		<entity schema="Obesity_Behavioral_dw_lgl.INSTANCE" name="dim_topic" color="C1D8EE" x="85" y="493" />
 		<entity schema="Obesity_Behavioral_dw_lgl.INSTANCE" name="dim_year" color="C1D8EE" x="51" y="272" />
-		<entity schema="Obesity_Behavioral_dw_lgl.INSTANCE" name="facts_obesity_behavioral" color="C1D8EE" x="289" y="272" />
+		<entity schema="Obesity_Behavioral_dw_lgl.INSTANCE" name="facts_obesitybehavior" color="C1D8EE" x="289" y="272" />
 		<callout x="153" y="51" pointer="Round" >
 			<comment><![CDATA[This is a layout - a diagram with tools.
 - Create new entities by right-clicking the layout. 

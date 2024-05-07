@@ -1,0 +1,29 @@
+stratificationid,stratificationcategory1,stratificationcategory2,stratification
+AGEYR1824,AGEYR,Age (years),18 - 24
+AGEYR2534,AGEYR,Age (years),25 - 34
+AGEYR3544,AGEYR,Age (years),35 - 44
+AGEYR4554,AGEYR,Age (years),45 - 54
+AGEYR5564,AGEYR,Age (years),55 - 64
+AGEYR65PLUS,AGEYR,Age (years),65 or older
+EDUCOGRAD,EDU,Education,College graduate
+EDUCOTEC,EDU,Education,Some college or technical school
+EDUHS,EDU,Education,Less than high school
+EDUHSGRAD,EDU,Education,High school graduate
+FEMALE,GEN,Gender,Female
+INC1525,INC,Income,"$15,000 - $24,999"
+INC2535,INC,Income,"$25,000 - $34,999"
+INC3550,INC,Income,"$35,000 - $49,999"
+INC5075,INC,Income,"$50,000 - $74,999"
+INC75PLUS,INC,Income,"$75,000 or greater"
+INCLESS15,INC,Income,"Less than $15,000"
+INCNR,INC,Income,Data not reported
+MALE,GEN,Gender,Male
+OVERALL,OVR,Total,Total
+RACE2PLUS,RACE,Race/Ethnicity,2 or more races
+RACEASN,RACE,Race/Ethnicity,Asian
+RACEBLK,RACE,Race/Ethnicity,Non-Hispanic Black
+RACEHIS,RACE,Race/Ethnicity,Hispanic
+RACEHPI,RACE,Race/Ethnicity,Hawaiian/Pacific Islander
+RACENAA,RACE,Race/Ethnicity,American Indian/Alaska Native
+RACEOTH,RACE,Race/Ethnicity,Other
+RACEWHT,RACE,Race/Ethnicity,Non-Hispanic White
