@@ -15,6 +15,8 @@ The data is sourced from the DNPAO's Data, Trends, and Maps database, maintained
 
 Last update on Dec 7th 2023
 Link to data source: https://catalog.data.gov/dataset/nutrition-physical-activity-and-obesity-behavioral-risk-factor-surveillance-system
+
+
 Link to data dictionary: https://chronicdata.cdc.gov/Nutrition-Physical-Activity-and-Obesity/Nutrition-Physical-Activity-and-Obesity-Behavioral/hn4x-zwk7/about_data
 
 
