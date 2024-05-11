@@ -35,7 +35,6 @@ The next step was to create logical and physical model with DBSchema and store t
 
 ## Tableau Link
 
-https://public.tableau.com/views/VisualizationObesityBehaviordataset/Piechartforsamplesizebasedonquestion?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link
-
+https://public.tableau.com/views/VisualizationObesityBehaviordataset/ChartValuesperStateandTopic?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link
 
 
